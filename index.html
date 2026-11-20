@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>X-RAY CLINIC SIMULATOR</title>
 
 <style>
@@ -21,20 +22,20 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 15px;
 }
 
 .container {
     width: 100%;
-    max-width: 950px;
+    max-width: 500px;
     text-align: center;
 }
 
 .logo {
-    font-size: 35px;
+    font-size: 26px;
     font-weight: bold;
-    margin-bottom: 12px;
-    letter-spacing: 2px;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
 }
 
 .logo span {
@@ -42,42 +43,43 @@ body {
 }
 
 .subtitle {
-    color: #aaa;
-    font-size: 15px;
-    margin-bottom: 35px;
+    color: #888;
+    font-size: 12px;
+    margin-bottom: 22px;
 }
 
 .game-card {
-    background: #1c1c1c;
-    border: 1px solid #383838;
-    border-radius: 18px;
-    padding: 35px 20px;
-    box-shadow: 0 10px 40px #0008;
+    background: #1b1b1b;
+    border: 1px solid #333;
+    border-radius: 14px;
+    padding: 22px 15px;
+    box-shadow: 0 8px 25px #0007;
 }
 
 .xray-icon {
-    font-size: 65px;
-    margin-bottom: 20px;
+    font-size: 45px;
+    margin-bottom: 12px;
 }
 
 h2 {
-    font-size: 24px;
-    margin-bottom: 12px;
+    font-size: 19px;
+    margin-bottom: 10px;
 }
 
 .description {
     color: #aaa;
+    font-size: 13px;
     line-height: 1.8;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .start-btn {
     background: #ffcc00;
     color: #111;
     border: none;
-    border-radius: 10px;
-    padding: 16px 40px;
-    font-size: 18px;
+    border-radius: 8px;
+    padding: 12px 28px;
+    font-size: 15px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
@@ -85,21 +87,21 @@ h2 {
 
 .start-btn:hover {
     background: #ffe066;
-    transform: scale(1.04);
+    transform: scale(1.03);
 }
 
 #gameSection {
     display: none;
-    margin-top: 25px;
+    margin-top: 18px;
 }
 
 .game-frame {
     width: 100%;
-    max-width: 900px;
-    height: 540px;
+    max-width: 500px;
+    height: 300px;
     margin: auto;
     border: 2px solid #ffcc00;
-    border-radius: 12px;
+    border-radius: 10px;
     overflow: hidden;
     background: #000;
 }
@@ -109,6 +111,14 @@ h2 {
     height: 100%;
     border: none;
 }
+
+.footer {
+    margin-top: 18px;
+    color: #666;
+    font-size: 10px;
+}
+
+/* رسالة تدوير الجهاز */
 
 .rotate-message {
     display: none;
@@ -120,21 +130,23 @@ h2 {
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    padding: 25px;
+    padding: 20px;
 }
 
 .rotate-icon {
-    font-size: 75px;
-    margin-bottom: 20px;
+    font-size: 65px;
+    margin-bottom: 18px;
     animation: rotate 2s infinite ease-in-out;
 }
 
 .rotate-message h2 {
     color: #ffcc00;
+    font-size: 22px;
 }
 
 .rotate-message p {
-    color: #bbb;
+    color: #aaa;
+    font-size: 14px;
     line-height: 1.8;
 }
 
@@ -143,36 +155,26 @@ h2 {
     50% { transform: rotate(90deg); }
 }
 
-.footer {
-    margin-top: 25px;
-    color: #666;
-    font-size: 12px;
-}
+/* الهواتف والآيباد */
 
 @media (max-width: 768px) {
-    body {
-        padding: 15px;
-    }
-
-    .logo {
-        font-size: 25px;
-    }
-
-    .game-card {
-        padding: 25px 15px;
+    .container {
+        max-width: 430px;
     }
 
     .game-frame {
-        height: 55vh;
-        min-height: 250px;
+        height: 260px;
     }
 }
+
+/* الوضع العمودي */
 
 @media (orientation: portrait) and (max-width: 1024px) {
     body.playing #rotateMessage {
         display: flex;
     }
 }
+
 </style>
 </head>
 
@@ -189,6 +191,7 @@ h2 {
     </div>
 
     <div class="game-card" id="welcome">
+
         <div class="xray-icon">☢️</div>
 
         <h2>X-RAY CLINIC SIMULATOR</h2>
@@ -196,23 +199,26 @@ h2 {
         <p class="description">
             استعد لخوض تجربة محاكاة تقنية الأشعة السينية.
             <br>
-            اكتشف عالم التصوير الشعاعي وابدأ رحلتك كفني أشعة.
+            ابدأ رحلتك كفني أشعة واكتشف عالم التصوير الشعاعي.
         </p>
 
         <button class="start-btn" onclick="startGame()">
             ابدأ اللعبة الآن
         </button>
+
     </div>
 
     <div id="gameSection">
 
         <div class="game-frame">
+
             <iframe
                 id="gameFrame"
                 title="X-Ray Clinic Simulator"
                 allow="fullscreen; autoplay; gamepad"
                 allowfullscreen>
             </iframe>
+
         </div>
 
     </div>
@@ -223,18 +229,20 @@ h2 {
 
 </div>
 
-<!-- رسالة تدوير الجهاز -->
+<!-- رسالة تدوير الهاتف -->
 
 <div class="rotate-message" id="rotateMessage">
+
     <div class="rotate-icon">📱</div>
 
     <h2>قم بتدوير جهازك</h2>
 
     <p>
-        للحصول على أفضل تجربة لعب،
+        يرجى تدوير الهاتف أو التابلت إلى الوضع الأفقي
         <br>
-        يرجى تدوير الهاتف أو التابلت إلى الوضع الأفقي.
+        للاستمتاع بتجربة اللعب.
     </p>
+
 </div>
 
 <script>
@@ -250,19 +258,6 @@ function startGame() {
     document.getElementById("gameFrame").src =
     "https://sh6oi.github.io/X-RAY-CLINIC-SIMULATOR/docs/";
 
-}
-
-// محاولة قفل اتجاه الجهاز أفقياً عند دعم المتصفح
-
-async function lockLandscape() {
-    try {
-        if (screen.orientation &&
-            screen.orientation.lock) {
-            await screen.orientation.lock("landscape");
-        }
-    } catch (e) {
-        // بعض المتصفحات لا تسمح بقفل الاتجاه
-    }
 }
 
 </script>
